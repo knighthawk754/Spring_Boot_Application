@@ -14,8 +14,10 @@ spec:
       labels:
         app: spring-boot-app
     spec:
+      imagePullSecrets:
+        - name: ecr-secret  # 👈 Add this line
       containers:
-      - name: spring-boot-app
-        image: 515966517171.dkr.ecr.us-east-1.amazonaws.com/voting:73
-        ports:
-        - containerPort: 8080
+        - name: spring-boot-app
+          image: 515966517171.dkr.ecr.us-east-1.amazonaws.com/voting:73
+          ports:
+            - containerPort: 8080
