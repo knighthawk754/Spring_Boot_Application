@@ -16,7 +16,7 @@
         stages {
             stage('Fetch Code') {
                 steps {
-                    git 'https://github.com/knighthawk754/devops_git.git'
+                    git 'https://github.com/knighthawk754/Spring_Boot_Application.git'
                 }
             }
             stage('OWASP Dependency Check') {
