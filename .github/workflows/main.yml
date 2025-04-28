@@ -1,45 +1,70 @@
 name: Basic CI Pipeline
 
-# Trigger the workflow on push, pull request events, or manually
-on:
+ to `spring-boot-app` before running Maven commands.on:
   push:
     branches:
       - main
   pull_request:
     branches:
       - main
-  workflow_dispatch: # Allow manual triggering of the workflow
+  workflow_dispatch:
 
-# Define the jobs (stages) in the workflow
-jobs:
-  # Stage 1: Checkout the code
+jobs Below is the corrected workflow:
+
+```yaml
+name: Basic:
   checkout:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/ CI Pipeline
 
-  # Stage 2: Build the application
+on:
+  push:
+    branches:
+      - main
+checkout@v4
+
   build:
     runs-on: ubuntu-latest
-    needs: checkout # This depends on the "checkout" stage
+    needs: checkout
     steps:
-      - name: Checkout code
+      - name: Checkout code  pull_request:
+    branches:
+      - main
+  workflow
         uses: actions/checkout@v4
+      
+      -_dispatch:
 
-      - name: Set up JDK 11
+jobs:
+  checkout:
+    runs-on: ubuntu-latest name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           java-version: '11'
-          distribution: 'temurin' # Specify the Java distribution
+          distribution: 'temurin'
 
       - name: Build with Maven
         run: mvn clean package
+        working
+    steps:
+      - name: Checkout code
+        uses-directory: spring-boot-app
 
-  # Stage 3: Test the application
   test:
     runs-on: ubuntu-latest
-    needs: build # This depends on the "build" stage
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@: actions/checkout@v4
+
+  build:
+    runs-on: ubuntuv4
+
+      - name: Set up JDK 11
+        uses: actions/setup-latest
+    needs: checkout
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -48,7 +73,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
-          distribution: 'temurin' # Specify the Java distribution
+          distribution: 'temurin'
 
-      - name: Run tests with Maven
-        run: mvn test
+      - name: Build with Maven
+        run: |
+          cd spring-java@v3
+        with:
+          java-version-boot-app
+          mvn clean package
+
+  test:
+   
