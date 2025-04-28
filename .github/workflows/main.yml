@@ -1,6 +1,6 @@
 name: Basic CI Pipeline
 
-# Trigger the workflow on push or pull request events on the main branch
+# Trigger the workflow on push, pull request events, or manually
 on:
   push:
     branches:
@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch: # Allow manual triggering of the workflow
 
 # Define the jobs (stages) in the workflow
 jobs:
