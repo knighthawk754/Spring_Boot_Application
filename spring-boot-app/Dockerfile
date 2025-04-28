@@ -1,13 +1,17 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
-FROM adoptopenjdk/openjdk11:alpine-jre
+# Use a lightweight base image for Java 11
+FROM eclipse-temurin:11-alpine
 
-# Simply the artifact path
-ARG artifact=target/spring-boot-web.jar
-
+# Set the working directory inside the container
 WORKDIR /opt/app
 
+# Argument for the artifact path
+ARG artifact=target/spring-boot-web.jar
+
+# Copy the application JAR file into the container
 COPY ${artifact} app.jar
 
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+# Expose the default port used by the Spring Boot application
+EXPOSE 8080
+
+# Command to run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
