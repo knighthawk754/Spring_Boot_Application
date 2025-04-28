@@ -41,4 +41,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-boot-application:latest ./spring-boot-app
+          docker build -t springboot ./spring-boot-app
