@@ -29,7 +29,8 @@ jobs:
           ls -l target
 
       - name: Upload JAR as an artifact
-        uses: actions/upload-artifact@v3
+        # Replace 'v3' with the latest stable version or a specific commit SHA
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: spring-boot-jar
           path: target/*.jar
