@@ -41,4 +41,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t springboot ./spring-boot-app
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/springboot:latest ./spring-boot-app
+
+      - name: Push Docker image to DockerHub
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/spring-boot-application:latest
