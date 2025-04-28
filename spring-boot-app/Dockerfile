@@ -8,7 +8,7 @@ WORKDIR /opt/app
 ARG artifact=target/spring-boot-web.jar
 
 # Copy the application JAR file into the container
-COPY ${artifact} app.jar
+COPY /target/*.jar app.jar
 
 # Expose the default port used by the Spring Boot application
 EXPOSE 8080
