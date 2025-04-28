@@ -1,6 +1,6 @@
 name: Basic CI Pipeline
 
- to `spring-boot-app` before running Maven commands.on:
+on:
   push:
     branches:
       - main
@@ -9,61 +9,15 @@ name: Basic CI Pipeline
       - main
   workflow_dispatch:
 
-jobs Below is the corrected workflow:
-
-```yaml
-name: Basic:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/ CI Pipeline
-
-on:
-  push:
-    branches:
-      - main
-checkout@v4
-
-  build:
-    runs-on: ubuntu-latest
-    needs: checkout
-    steps:
-      - name: Checkout code  pull_request:
-    branches:
-      - main
-  workflow
-        uses: actions/checkout@v4
-      
-      -_dispatch:
-
 jobs:
   checkout:
-    runs-on: ubuntu-latest name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '11'
-          distribution: 'temurin'
-
-      - name: Build with Maven
-        run: mvn clean package
-        working
-    steps:
-      - name: Checkout code
-        uses-directory: spring-boot-app
-
-  test:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@: actions/checkout@v4
+        uses: actions/checkout@v4
 
   build:
-    runs-on: ubuntuv4
-
-      - name: Set up JDK 11
-        uses: actions/setup-latest
+    runs-on: ubuntu-latest
     needs: checkout
     steps:
       - name: Checkout code
@@ -77,10 +31,23 @@ jobs:
 
       - name: Build with Maven
         run: |
-          cd spring-java@v3
-        with:
-          java-version-boot-app
+          cd spring-boot-app
           mvn clean package
 
   test:
-   
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+
+      - name: Run tests with Maven
+        run: |
+          cd spring-boot-app
+          mvn test
