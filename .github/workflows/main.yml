@@ -31,6 +31,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
+          distribution: 'temurin' # Specify the Java distribution
 
       - name: Build with Maven
         run: mvn clean package
@@ -47,6 +48,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
+          distribution: 'temurin' # Specify the Java distribution
 
       - name: Run tests with Maven
         run: mvn test
