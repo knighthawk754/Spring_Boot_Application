@@ -26,7 +26,7 @@ jobs:
       - name: Build with Maven
         run: |
           cd spring-boot-app
-          mvn clean package
+          mvn -f spring-boot-app/pom.xml clean package
           ls -l target
 
       - name: Upload JAR as an artifact
