@@ -2,7 +2,7 @@ name: CICD pipeline
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 jobs:
   build:
@@ -19,4 +19,4 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -DskipTests=true
       - name: Run tests
-        run: mvn test 
+        run: mvn test
